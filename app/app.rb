@@ -7,6 +7,7 @@ module Snippets
 		
 		# list snippets
 		get '/' do
+			# find all the snippets!
 			@snippets = Snippet.all(:approved => true, :limit => 10, :order => [:created.desc])
 			
 			erb :list
@@ -15,10 +16,14 @@ module Snippets
 		# get snippet
 		get '/snippet/:id' do
 		
+			# find snippet
 			@snippet = Snippet.get(params[:id])
 			
+			# found? yay!
 			if @snippet
 			   erb :snippet
+			  
+			# hmmm, error then...
 			else
 			   @title = 'Ooops'
 			   @message = 'Snippet not found'
