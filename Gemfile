@@ -1,8 +1,15 @@
 # Source
 source :rubygems
 
-# Framework
-gem 'sinatra', '~> 1.3.2'
+# Sinatra
+gem		'sinatra',				:require => 'sinatra/base'
 
 # JSON
-gem 'json', '~> 1.6.5'
+gem		'json',					:require => 'json'
+
+# Datamapper
+gem		'dm-core',				:require => 'dm-core'
+gem		'dm-migrations',		:require => 'dm-migrations'
+gem		'dm-sqlite-adapter',	:require => 'dm-sqlite-adapter'
+gem		'dm-serializer',		:require => 'dm-serializer'
+gem		'dm-timestamps',		:require => 'dm-timestamps'

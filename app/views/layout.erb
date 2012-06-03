@@ -3,17 +3,30 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Snippets</title>
+		
+		<link rel="stylesheet" href="/css/reset.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="/css/core.css" type="text/css" media="all" />
+		
 	</head>
 	<body>
-		<header>
-			<h1>Snippets</h1>
-		</header>
-		
-		<section id="main">
-			<%= yield %>
-		</section>
-		
-		<footer>
-		</footer>
+		<div id="wrap">
+			<header id="header">
+				<h1>Snippets</h1>
+			</header>
+			
+			<nav id="topNav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/submit">Submit</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+			</nav>
+			
+			<section id="main">
+				<%= yield %>
+			</section>
+			
+			<footer id="footer"></footer>
+		</div>
 	</body>
 </html>
