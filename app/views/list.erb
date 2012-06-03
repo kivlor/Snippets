@@ -1,12 +1,19 @@
-<section id="content">
 <% unless @snippets.empty? %>
 	<% @snippets.each do |snippet| %>
-	<article>
-		<h3><a href="/snippet/<%= snippet.id %>"><%= snippet.title %></a></h3>
-		<pre><%= snippet.snippet %></pre>
+	<article class="snippet">
+		<header>
+			<h3><a href="/snippet/<%= snippet.id %>"><%= snippet.title %></a></h3>
+		<header>
+		
+		<section>
+			<pre><%= snippet.snippet %></pre>
+		</section>
+		
+		<footer>
+			<p>Added <time datetime="<%= snippet.created %>"><%= snippet.created.strftime('%e %B %Y') %> by Anonymous</p>
+		</footer>
 	</article>
 	<% end %>
 <% else %>
-	<h3>No Snippets Found</h3>
+	<h3>No Snippets Found, why not <a href="/submit">submit</a> one...</h3>
 <% end %>
-</section>

@@ -1,4 +1,13 @@
-<section id="content">
-	<h3><%= @snippet["title"] %></h3>
-	<pre><%= @snippet["snippet"] %></pre>
-</section>
+<article class="snippet">
+	<header>
+		<h3><%= @snippet.title %></h3>
+	<header>
+	
+	<section>
+		<pre><%= @snippet.snippet %></pre>
+	</section>
+	
+	<footer>
+		<p>Added <time datetime="<%= @snippet.created %>"><%= @snippet.created.strftime('%e %B %Y') %> by Anonymous</p>
+	</footer>
+</article>

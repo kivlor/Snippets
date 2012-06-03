@@ -1,6 +1,12 @@
 <section id="content">
 	<h3>Submit A Snippet</h3>
 	
+	<% if @error != nil %>
+	<p class="error">
+		<%= @error %>
+	</p>
+	<% end %>
+	
 	<form action="/submit" method="post" accept-charset="utf-8">
 		<p>
 			<label for="title">Title</label>
