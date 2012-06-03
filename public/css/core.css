@@ -2,6 +2,9 @@ body { margin: 0; padding: 0; background: fff; color: #111; font: 500 16px/1.2em
 
 h1, h2, h3, h4, p { margin: 0 0 1em; }
 
+a, a:visited, a:hover { background: transparent; color: #222; }
+a img, a:visited img, a:hover img { border: none; }
+
 form { margin: 0; padding: 0px; }
 form p { margin: 0 0 10px; padding: 0; }
 form p label { display: block; margin: 0 0 10px; font-weight: 700; }
@@ -15,5 +18,11 @@ form p input[type='submit'] { display: inline-block; margin: 0; padding: 5px 10p
 #wrap #topNav ul { margin: 0; padding: 0; width: 100%; list-style: none; overflow: hidden; }
 #wrap #topNav ul li { display: inline; float: left; }
 #wrap #topNav ul li a, #wrap #topNav ul li a:visited, #wrap #topNav ul li a:hover { display: block; padding: 5px 10px; background: transparent; color: #333; text-decoration: none; }
-#wrap #main { text-align: left; }
-#wrap #main #content { margin: 0 10px; padding: 10px 0; }
+#wrap #main { text-align: left; margin: 0 10px; padding: 10px 0; }
+#wrap #main article.snippet header { margin: 0; }
+#wrap #main article.snippet header h3 { text-transform: capitalize; }
+#wrap #main article.snippet header h3 a, #wrap #main article.snippet header h3 a:visited, #wrap #main article.snippet header h3 a:hover { text-decoration: none; }
+#wrap #main article.snippet section { padding: 10px; background: #eee; color: #333; font: 16px/1.5em monospace; border-radius: 5px; }
+#wrap #main article.snippet section pre { margin: 0; padding: 0; }
+#wrap #main article.snippet footer { padding: 10px 0 20px; }
+#wrap #main article.snippet footer p { margin: 0; background: transparent; color: #999; font: 14px/1.2em sans-serif; }
