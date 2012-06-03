@@ -39,21 +39,20 @@ module Snippets
 		
 		# submit snippet
 		post '/submit' do
+			
+			# try and create snippet
 			snippet = Snippet.create(:title => params[:title], :snippet => params[:snippet], :created => Time.now, :updated => Time.now)
 			
-			# TODO - add failure exception
+			# save was successful?
+			if snippet.save
+				redirect '/'
+			
+			# doh!
+			else
+				@error = 'Unable to insert snippet, try again...'
+			end
 			
 			erb :submit
-		end
-		
-		# get approve form
-		get '/approve/:id' do
-			erb :approve
-		end
-		
-		# approve / ignore snippet
-		post '/approve/:id' do
-			erb :approve
 		end
 		
 		# 404
