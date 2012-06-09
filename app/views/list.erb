@@ -10,7 +10,7 @@
 		</section>
 		
 		<footer>
-			<p>Added <time datetime="<%= snippet.created %>"><%= snippet.created.strftime('%e %B %Y') %> by Anonymous</p>
+			<p>Added <time datetime="<%= snippet.created %>"><%= snippet.created.strftime("#{snippet.created.day.to_ordinal} %B %Y") %> by Anonymous</p>
 		</footer>
 	</article>
 	<% end %>
