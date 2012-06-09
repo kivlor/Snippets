@@ -7,6 +7,12 @@ gem		'sinatra',				:require => 'sinatra/base'
 # JSON
 gem		'json',					:require => 'json'
 
+# ordinalize
+gem 	'ordinal',				:require => 'ordinal'
+
+# pony
+gem 	'pony',					:require => 'pony'
+
 # Datamapper
 gem		'dm-core',				:require => 'dm-core'
 gem		'dm-migrations',		:require => 'dm-migrations'
