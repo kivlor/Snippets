@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	background: fff;
+	background: #efefef;
 	color: #111;
 	font: 500 16px/1.2em sans-serif;
 }
@@ -55,9 +55,10 @@ form {
 }
 
 #wrap {
-	margin: 0 auto;
-	padding: 20px 0;
+	margin: 20px auto;
+	padding: 0;
 	width: 960px;
+	background: #fff;
 	text-align: center;
 
 	#header {

@@ -1,4 +1,4 @@
-body { margin: 0; padding: 0; background: fff; color: #111; font: 500 16px/1.2em sans-serif; }
+body { margin: 0; padding: 0; background: #efefef; color: #111; font: 500 16px/1.2em sans-serif; }
 
 h1, h2, h3, h4, p { margin: 0 0 1em; }
 
@@ -11,7 +11,7 @@ form p label { display: block; margin: 0 0 10px; font-weight: 700; }
 form p input[type='text'], form p textarea { display: block; margin: 0; padding: 10px; width: 420px; background: #fff; border: 1px solid #ccc; }
 form p input[type='submit'] { display: inline-block; margin: 0; padding: 5px 10px; background: #666; color: #fff; border: none; border-radius: 3px; }
 
-#wrap { margin: 0 auto; padding: 20px 0; width: 960px; text-align: center; }
+#wrap { margin: 20px auto; padding: 0; width: 960px; background: #fff; text-align: center; }
 #wrap #header { background: #ccc; color: #111; }
 #wrap #header h1 { margin: 0; padding: 20px 10px; text-align: left; }
 #wrap #topNav { background: #ddd; color: #111; }
