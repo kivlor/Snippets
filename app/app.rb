@@ -4,13 +4,9 @@ require File.dirname(__FILE__) + '/models'
 module Snippets
 	
 	class App < Sinatra::Base
-				
-		# init
-		def initialize
-			super()
-			@site_title = 'Snippets'
-			@site_url = 'localhost:9393'
-		end
+		
+		@site_title = 'Snippets'
+		@site_url = 'localhost:9393'
 		
 		# list snippets
 		get '/' do
