@@ -48,8 +48,8 @@ module Snippets
 					:to => 'kivlor@gmail.com',
 					:from => 'kivlor@gmail.com',
 					:subject => 'Approve new Snippet',
-					:html_body => "<a href=\"http://#{@site_url}/approve/#{@snippet.id}/#{@snippet.adminhash}\">Approve #{@snippet.title}</a>",
-					:body => "Approve #{@snippet.title} - http://#{@site_url}/approve/#{@snippet.adminhash}"
+					:html_body => "<a href=\"http://#{@site_url}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
+					:body => "Approve #{@snippet.title} - http://#{@site_url}/approve/#{@snippet.admin_hash}"
 				)
 				
 				redirect '/'
@@ -62,11 +62,11 @@ module Snippets
 		end
 		
 		# approve snippet
-		get '/approve/:id/:adminhash' do
+		get '/approve/:id/:admin_hash' do
 			
 			@snippet = Snippet.get(params[:id])
 			
-			if @snippet and @snippet.adminhash == params[:adminhash]
+			if @snippet and @snippet.admin_hash == params[:admin_hash]
 				
 				@snippet.approved = true
 				@snippet.save
