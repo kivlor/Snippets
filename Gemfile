@@ -2,7 +2,8 @@
 source :rubygems
 
 # Sinatra
-gem		'sinatra',				:require => 'sinatra/base'
+gem		'sinatra',        :require => 'sinatra/base'
+gem   'sinatra-flash',  :require => 'sinatra/flash'
 
 # JSON
 gem		'json',					:require => 'json'

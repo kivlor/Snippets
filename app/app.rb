@@ -1,4 +1,3 @@
-require File.dirname(__FILE__) + '/library'
 require File.dirname(__FILE__) + '/models'
 
 module Snippets
@@ -7,6 +6,9 @@ module Snippets
 		
 		@site_title = 'Snippets'
 		@site_url = 'localhost:9393'
+		
+		enable    :sessions
+    register  Sinatra::Flash
 		
 		# list snippets
 		get '/' do
@@ -40,7 +42,7 @@ module Snippets
 		post '/submit' do
 			
 			@snippet = Snippet.create(:title => params[:title], :snippet => params[:snippet], :created => Time.now, :updated => Time.now)
-			
+      
 			if @snippet.save
 			
 				# email admin approve link
@@ -51,7 +53,7 @@ module Snippets
 					:html_body => "<a href=\"http://#{@site_url}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
 					:body => "Approve #{@snippet.title} - http://#{@site_url}/approve/#{@snippet.admin_hash}"
 				)
-				
+				flash[:notice] = 'Snippet submitted.'
 				redirect '/'
 			
 			else
