@@ -25,3 +25,6 @@ Gemfile.lock
 
 # SQLite DB
 *.db
+
+# Configuration Files
+config/*.yml
