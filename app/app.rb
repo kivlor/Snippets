@@ -6,21 +6,18 @@ module Snippets
 		
 		enable    :sessions
     register  Sinatra::Flash
+		CONFIG = YAML.load_file(File.dirname(__FILE__) + "/../config/config.yml")
 		
 		def initialize
-			super
+			super()
 			
-			@site_title = 'Snippets'
-			@site_url = 'localhost:9393'
-			
-			CONFIG = YAML.load_file(File.dirname(__FILE__) + "/../config/config.yml")
+			@site_title	= CONFIG['site']['title']
+			@site_url		= CONFIG['site']['host']
 		end
 		
 		# list snippets
 		get '/' do
 			@snippets = Snippet.all(:approved => true, :limit => 10, :order => [:created.desc])
-			
-			puts @site_title
 			
 			erb :list
 		end
