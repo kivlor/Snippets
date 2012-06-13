@@ -9,6 +9,8 @@ module Snippets
 		
 		enable    :sessions
     register  Sinatra::Flash
+    
+    CONFIG = YAML.load_file(File.dirname(__FILE__) + "/../config/config.yml")
 		
 		# list snippets
 		get '/' do
@@ -45,14 +47,24 @@ module Snippets
       
 			if @snippet.save
 			
-				# email admin approve link
+				# email admin approve link				
 				Pony.mail(
-					:to => 'kivlor@gmail.com',
-					:from => 'kivlor@gmail.com',
-					:subject => 'Approve new Snippet',
+					:to => CONFIG['email']['to'],
+					:via => :smtp,
+					:via_options => {
+						:address => 'smtp.gmail.com',
+						:port => '587',
+						:enable_starttls_auto => true,
+						:user_name => CONFIG['email']['username'],
+						:password => CONFIG['email']['password'],
+						:authentication => :plain,
+						:domain => "HELO",
+						},
+					:subject => "Approve new Snippet",
 					:html_body => "<a href=\"http://#{@site_url}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
 					:body => "Approve #{@snippet.title} - http://#{@site_url}/approve/#{@snippet.admin_hash}"
 				)
+				
 				flash[:notice] = 'Snippet submitted.'
 				redirect '/'
 			
