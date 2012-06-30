@@ -62,7 +62,7 @@ module Snippets
 						:domain => "HELO",
 					},
 					:subject => "Approve new Snippet",
-					:html_body => "<a href=\"http://#{settings.site_title}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
+					:html_body => "<a href=\"http://#{settings.site_url}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
 					:body => "Approve #{@snippet.title} - http://#{settings.site_url}/approve/#{@snippet.admin_hash}"
 				)
 				
