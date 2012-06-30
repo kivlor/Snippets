@@ -9,8 +9,14 @@ module Snippets
 		CONFIG = YAML.load_file(File.dirname(__FILE__) + "/../config/config.yml")
 		
 		configure do
+			# site
 			set :site_title, CONFIG['site']['title']
 			set :site_host, CONFIG['site']['host']
+			
+			# email
+			set :email_username, CONFIG['email']['username']
+			set :email_password, CONFIG['email']['password']
+			set :email_to, CONFIG['email']['to']
 		end
 		
 		# list snippets
@@ -56,14 +62,14 @@ module Snippets
 						:address => 'smtp.gmail.com',
 						:port => '587',
 						:enable_starttls_auto => true,
-						:user_name => CONFIG['email']['username'],
-						:password => CONFIG['email']['password'],
+						:user_name => settings.email_username,
+						:password => settings.email_password,
 						:authentication => :plain,
 						:domain => "HELO",
 					},
 					:subject => "Approve new Snippet",
-					:html_body => "<a href=\"http://#{settings.site_host}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
-					:body => "Approve #{@snippet.title} - http://#{settings.site_host}/approve/#{@snippet.admin_hash}"
+					:html_body => "<a href=\"http://#{settings.site_host}/approve/#{snippet.id}/#{snippet.admin_hash}\">Approve #{snippet.title}</a>",
+					:body => "Approve #{snippet.title} - http://#{settings.site_host}/approve/#{snippet.admin_hash}"
 				)
 				
 				flash[:notice] = 'Snippet submitted.'
