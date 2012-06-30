@@ -1,7 +1,7 @@
+site:
+    title:  'Snippets'
+    host:   'localhost:9393'
 email:
     username: our_snippets_address@gmail.com
     password: secure_password
     to:       my_email_address@gmail.com
-site:
-    title:  'Snippets'
-    host:   'localhost:9393'
