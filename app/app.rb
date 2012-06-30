@@ -5,14 +5,12 @@ module Snippets
 	class App < Sinatra::Base
 		
 		enable    :sessions
-    register  Sinatra::Flash
+		register  Sinatra::Flash
 		CONFIG = YAML.load_file(File.dirname(__FILE__) + "/../config/config.yml")
 		
-		def initialize
-			super()
-			
-			@site_title	= CONFIG['site']['title']
-			@site_url		= CONFIG['site']['host']
+		configure do
+			set :site_title, CONFIG['site']['title']
+			set :site_url, CONFIG['site']['host']
 		end
 		
 		# list snippets
@@ -62,10 +60,10 @@ module Snippets
 						:password => CONFIG['email']['password'],
 						:authentication => :plain,
 						:domain => "HELO",
-						},
+					},
 					:subject => "Approve new Snippet",
-					:html_body => "<a href=\"http://#{@site_url}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
-					:body => "Approve #{@snippet.title} - http://#{@site_url}/approve/#{@snippet.admin_hash}"
+					:html_body => "<a href=\"http://#{settings.site_title}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
+					:body => "Approve #{@snippet.title} - http://#{settings.site_url}/approve/#{@snippet.admin_hash}"
 				)
 				
 				flash[:notice] = 'Snippet submitted.'
