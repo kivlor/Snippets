@@ -10,7 +10,7 @@ module Snippets
 		
 		configure do
 			set :site_title, CONFIG['site']['title']
-			set :site_url, CONFIG['site']['host']
+			set :site_host, CONFIG['site']['host']
 		end
 		
 		# list snippets
@@ -62,8 +62,8 @@ module Snippets
 						:domain => "HELO",
 					},
 					:subject => "Approve new Snippet",
-					:html_body => "<a href=\"http://#{settings.site_url}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
-					:body => "Approve #{@snippet.title} - http://#{settings.site_url}/approve/#{@snippet.admin_hash}"
+					:html_body => "<a href=\"http://#{settings.site_host}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
+					:body => "Approve #{@snippet.title} - http://#{settings.site_host}/approve/#{@snippet.admin_hash}"
 				)
 				
 				flash[:notice] = 'Snippet submitted.'
