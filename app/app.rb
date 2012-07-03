@@ -68,8 +68,8 @@ module Snippets
 						:domain => "HELO",
 					},
 					:subject => "Approve new Snippet",
-					:html_body => "<a href=\"http://#{settings.site_host}/approve/#{snippet.id}/#{snippet.admin_hash}\">Approve #{snippet.title}</a>",
-					:body => "Approve #{snippet.title} - http://#{settings.site_host}/approve/#{snippet.admin_hash}"
+					:html_body => "<a href=\"http://#{settings.site_host}/approve/#{@snippet.id}/#{@snippet.admin_hash}\">Approve #{@snippet.title}</a>",
+					:body => "Approve #{@snippet.title} - http://#{settings.site_host}/approve/#{@snippet.admin_hash}"
 				)
 				
 				flash[:notice] = 'Snippet submitted.'
