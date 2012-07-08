@@ -8,17 +8,37 @@
 	<% end %>
 	
 	<form action="/submit" method="post" accept-charset="utf-8">
-		<p>
-			<label for="title">Title</label>
-			<input type="text" name="title" id="title" value="" placeholder="Enter a title..." />
-		</p>
-		<p>
-			<label for="title">Snippet</label>
-			<textarea name="snippet" id="title" placeholder="Enter your snippet..." rows="8"></textarea>
-		</p>
-		<p>
-			<input type="submit" name="submit" value="Submit" />
-		</p>
+		<fieldset>
+			<p>
+				<label for="title">Title</label>
+				<input type="text" name="title" id="title" value="" placeholder="Enter a title" />
+			</p>
+			<p>
+				<label for="title"><%= settings.snippet_title %></label>
+				<textarea name="snippet" id="title" placeholder="Enter your <%= settings.snippet_name %>" rows="8"></textarea>
+			</p>
+			<p>
+				<label for="title">Tags (comma seperated)</label>
+				<input type="text" name="tags" id="tags" value="" placeholder="Enter some tags" />
+			</p>
+		</fieldset>
+		
+		<fieldset>
+			<p>
+				<label for="title">Your Name</label>
+				<input type="text" name="tags" id="tags" value="" placeholder="Leave blank to remain anonymous" />
+			</p>
+			
+			<p>
+				<label for="title">Your Email address</label>
+				<input type="text" name="tags" id="tags" value="" placeholder="Leave blank to remain anonymous" />
+			</p>
+		</fieldset>
+		
+		<fieldset>
+			<p>
+				<input type="submit" name="submit" value="Submit" />
+			</p>
+		</fieldset>
 	</form>
-	
 </section>

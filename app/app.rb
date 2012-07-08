@@ -17,6 +17,10 @@ module Snippets
 			set :email_username, CONFIG['email']['username']
 			set :email_password, CONFIG['email']['password']
 			set :email_to, CONFIG['email']['to']
+			
+			#snippet
+			set :snippet_name, CONFIG['snippet']['name']
+			set :snippet_title, CONFIG['snippet']['title']
 		end
 		
 		# list snippets
